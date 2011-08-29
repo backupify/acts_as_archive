@@ -20,5 +20,11 @@ describe ActsAsArchive::Base do
     it "should add Archive class to the model" do
       defined?(Article::Archive).should == "constant"
     end
+
+    context 'Archive class' do
+      it "should define an alternative inheritance column" do
+        Article::Archive.inheritance_column.should == '_type'
+      end
+    end
   end
 end

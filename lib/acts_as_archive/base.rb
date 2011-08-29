@@ -20,6 +20,9 @@ module ActsAsArchive
           class Archive < ActiveRecord::Base
             self.record_timestamps = false
             self.table_name = "archived_#{self.table_name}"
+
+            # effectively disable STI
+            set_inheritance_column :_type
           end
         end_eval
         include Destroy
