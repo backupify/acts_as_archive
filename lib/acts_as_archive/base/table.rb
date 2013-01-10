@@ -10,9 +10,9 @@ module ActsAsArchive
           # If using Octopus for shard/replication management, dig into the config to figure out which adapter we're using
           connection_class = base.connection.class.to_s == 'Octopus::Proxy' ? base.connection.config[:adapter] : base.connection.class.to_s
 
-          if connection_class.include?('Mysql')
+          if connection_class =~ /mysql/i
             base.send :extend, ActsAsArchive::Base::Adapters::MySQL
-          elsif connection_class.include?('PostgreSQL')
+          elsif connection_class =~ /postgresql/i
             base.send :extend, ActsAsArchive::Base::Adapters::PostgreSQL
           else
             raise 'acts_as_archive does not support this database adapter'
