@@ -91,3 +91,10 @@ If you are querying your archive a lot, you will want to add indexes:
 
 Call `ActsAsArchive.update` upon adding new indexes
 (see <a href="#create_archive_tables">_Create archive tables_</a>).
+
+Delete records without archiving
+---------------------------------
+
+To delete multiple records without archiving:
+
+    Article.delete_all!(["id in (?)", [1,2,3]])
