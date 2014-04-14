@@ -24,21 +24,6 @@ describe ActsAsArchive::Base::Destroy do
     end
     
   end
-
-  describe 'destroy!' do
-
-    before(:all) do
-      create_records
-      @article = Article.first
-    end
-
-    it "should really destroy a record" do
-      lambda {
-        @article.destroy!
-      }.should_not change(Article::Archive, :count)
-    end
-
-  end
   
   describe 'delete_all' do
     
