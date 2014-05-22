@@ -64,10 +64,6 @@ module ActsAsArchive
           @destroyed = true
           freeze
         end
-        
-        def destroy!
-          transaction { delete! }
-        end
       end
     end
   end

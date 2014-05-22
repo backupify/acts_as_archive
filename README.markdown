@@ -93,11 +93,7 @@ Call `ActsAsArchive.update` upon adding new indexes
 (see <a href="#create_archive_tables">_Create archive tables_</a>).
 
 Delete records without archiving
---------------------------------
-
-To destroy a record without archiving:
-
-    article.destroy!
+---------------------------------
 
 To delete multiple records without archiving:
 
