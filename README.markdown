@@ -44,9 +44,11 @@ There is an [alternate way to create archive tables](http://wiki.github.com/wint
 That's it!
 ----------
 
-Use `destroy`, `delete`, and `delete_all` like you normally would.
+Use `destroy` and `destroy_all` like you normally would.
 
 Records move into the archive table instead of being destroyed.
+
+*NOTE:* `delete!` and `delete_all` bypass acts_as_archive (like any model callbacks, by design). Using these methods will *not* move your records into the archive table. 
 
 What if my schema changes?
 --------------------------
@@ -97,7 +99,7 @@ Delete records without archiving
 
 To destroy a record without archiving:
 
-    article.destroy!
+    article.delete!
 
 To delete multiple records without archiving:
 
