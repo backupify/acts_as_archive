@@ -7,9 +7,9 @@ module ActsAsArchive
           base.send :extend, ClassMethods
           base.send :include, InstanceMethods
 
-          if base.connection.class.to_s.include?('Mysql')
+          if base.connection_config[:adapter] == 'mysql'
             base.send :extend, ActsAsArchive::Base::Adapters::MySQL
-          elsif base.connection.class.to_s.include?('PostgreSQL')
+          elsif base.connection_config[:adapter] == 'postgresql'
             base.send :extend, ActsAsArchive::Base::Adapters::PostgreSQL
           else
             raise 'acts_as_archive does not support this database adapter'
